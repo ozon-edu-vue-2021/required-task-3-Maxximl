@@ -11,7 +11,6 @@
 import Map from "./components/Map.vue";
 import SideMenu from "./components/SideMenu.vue";
 import people from "./assets/data/people.json";
-import { find } from "lodash";
 
 export default {
   name: "App",
@@ -39,7 +38,7 @@ export default {
   },
   methods: {
     handleTableSelect(table) {
-      const personData = find(this.people, (man) => man.tableId === table._id);
+      const personData = this.people.find((man) => man.tableId === table._id);
       this.sideMenuData.person = personData;
       this.sideMenuData.isUserOpenned = true;
     },
